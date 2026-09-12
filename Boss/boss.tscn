@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://0c84hmr7d8ar"]
+
+[ext_resource type="Texture2D" uid="uid://dnaqabn8onkam" path="res://cirle.png" id="1_2mdct"]
+[ext_resource type="Script" uid="uid://xj24wc4qvsy4" path="res://Boss/Boss.cs" id="1_t20dt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5urm"]
+radius = 13.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b5urm"]
+radius = 13.0
+height = 202.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clukp"]
+radius = 13.0
+height = 42.0
+
+[node name="Boss" type="CharacterBody2D" unique_id=408297324]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_t20dt")
+
+[node name="Cirle" type="Sprite2D" parent="." unique_id=920517947]
+position = Vector2(9.536743e-07, 0.12500715)
+scale = Vector2(0.017708333, 0.016796883)
+texture = ExtResource("1_2mdct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1492924778]
+shape = SubResource("CircleShape2D_b5urm")
+
+[node name="ChaseArea" type="Area2D" parent="." unique_id=1735982495]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea" unique_id=953397281]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b5urm")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=2067800005]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=783863833]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_clukp")

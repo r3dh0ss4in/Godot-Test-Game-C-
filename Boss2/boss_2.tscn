@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bk5cv0s8obshy"]
+
+[ext_resource type="Texture2D" uid="uid://dnaqabn8onkam" path="res://cirle.png" id="1_7enqi"]
+[ext_resource type="Script" uid="uid://dwonif1x7jhat" path="res://Boss2/Boss_2.cs" id="2_k5ksc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5urm"]
+radius = 23.086792
+
+[node name="Boss2" type="CharacterBody2D" unique_id=1579650021]
+collision_layer = 8
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("2_k5ksc")
+
+[node name="Cirle" type="Sprite2D" parent="." unique_id=248346775]
+modulate = Color(0.72799003, 0, 0.14930126, 1)
+position = Vector2(-0.37500906, -0.12500048)
+scale = Vector2(0.032682296, 0.03111979)
+texture = ExtResource("1_7enqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303594516]
+shape = SubResource("CircleShape2D_b5urm")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1608361376]
+path_desired_distance = 10.0
+target_desired_distance = 15.0
+debug_enabled = true
+debug_path_custom_color = Color(0.7107465, 0, 0.19791666, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=2011808656]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -6,7 +6,7 @@ public partial class Main : Node2D
 	public override void _Ready()
 	{
 		// Signal connection
-		var area = GetNode<Area2D>("Area2D");
+		var area = GetNode<Area2D>("Death");
     	area.BodyEntered += OnBodyEntered;
 	}
 
